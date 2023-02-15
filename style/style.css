@@ -2,7 +2,7 @@
 
 #navbarSupportedContent{
     justify-content: end;
-}
+    }
 .navbar-brand{
     height: 6rem;
     }
@@ -11,6 +11,7 @@
         border: 1px solid black !important;
         border-radius: 5px;
         margin: 2px;
+        background-color: #B8D4E3;
     }
 /*Slide*/
 .slide{
@@ -18,6 +19,7 @@
     background-color: #FAAA8D;
     text-decoration: none;
     text-align: center !important;
+    justify-content: space-between !important;
 }
 .slide>a{
     text-decoration: none !important;
@@ -34,6 +36,13 @@ form{
 /*Cards*/
 .cards>div{
     display: inline-block !important;
+    margin: 1rem;
+}
+
+/*Contact*/
+.contact{
+    display: flex !important;
+    flex-direction: column;
 }
 
 
@@ -42,8 +51,14 @@ footer{
     height: 6rem;
     background-color: #FAAA8D;
     padding: 5px;
-    justify-content: space-between;
 }
+.footer{
+    display: flex !important;
+    justify-content: space-between;
+    font-size: 2rem;
+ }
+ .redes>a>svg{
+    }
 
 /*table*/
 table{   
@@ -53,14 +68,14 @@ table{
    }
    thead{
     background-color: gray;
-    text-align: center;
+    text-align: left;
     border: 1px solid black;
    }
    tbody{
     border: 1px solid black !important;
    }
 
-   th,td{
+   tr,th,td{
     padding: 1rem;
     border: 1px solid black
 
