@@ -14,6 +14,7 @@
         background-color: #B8D4E3;
     }
 /*Slide*/
+
 .slide{
     height: 7rem;
     background-color: #FAAA8D;
@@ -21,11 +22,12 @@
     text-align: center !important;
     justify-content: space-between !important;
 }
-.slide>a{
+.slide>a>{
     text-decoration: none !important;
     text-align: center;
+    font-size: 1rem;
 }
-/*Form*/
+/*Form Checkbox*/
 form{
     margin: 1rem;
 }
@@ -44,23 +46,9 @@ form{
     display: flex !important;
     flex-direction: column;
 }
+/*Details*/
 
-
-/*Footer*/
-footer{
-    height: 6rem;
-    background-color: #FAAA8D;
-    padding: 5px;
-}
-.footer{
-    display: flex !important;
-    justify-content: space-between;
-    font-size: 2rem;
- }
- .redes>a>svg{
-    }
-
-/*table*/
+/*Stats*/
 table{   
     border: 3px solid black;
     margin: 2rem;
@@ -78,7 +66,18 @@ table{
    tr,th,td{
     padding: 1rem;
     border: 1px solid black
-
    }
+
+   /*Footer*/
+footer{
+    height: 6rem;
+    background-color: #FAAA8D;
+    padding: 5px;
+}
+.footer{
+    display: flex !important;
+    justify-content: space-between;
+    font-size: 2rem;
+ }
 
 
