@@ -1,17 +1,14 @@
-let htmlEvents = "";
-for(let event of data.events){
-    let currentDate = new Date(data.currentDate);
-    let eventDate = new Date(event.date);
-
-    if (eventDate < currentDate) {
-        console.log("evento pasado")
-    } else {
-        console.log("evento futuro")
-    }
-//     htmlEvents += `<div class="card">
-//     <img src="${event.image}" alt="">
-//     <h3>${event.name}</h3>
-//     <p>${event.description}</p>
-// </div>`;
+let htmlEvents ="";
+for (let event of data.events) {
+    htmlEvents = `<div class="cards">
+    <div class="card">
+    <img src="${event.image}" class="rounded float-start card-img-top" alt="evento"></img>
+    <div class="card-body" >
+    <h5 class="card-title">${event.name}</h5>
+    <p>${event.description}</p>
+    <p>Precio $${event.price}</p><button type="button" class="btn     btn-primary">More details...</button>
+    </div>
+    </div>
+    </div>` 
+   document.querySelector('.card').innerHTML += htmlEvents;
 }
-console.log(htmlEvents);
