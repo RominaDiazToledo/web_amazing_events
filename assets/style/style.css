@@ -15,17 +15,17 @@
     }
 /*Slide*/
 
-.slide{
-    height: 7rem;
-    background-color: #FAAA8D;
-    text-decoration: none;
-    text-align: center !important;
-    justify-content: space-between !important;
-}
-.slide>a>{
-    text-decoration: none !important;
+.slide {
+    font-size: 50px;
     text-align: center;
-    font-size: 1rem;
+    background-color: #FAAA8D;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.slide h1 {
+    align-self: center;
 }
 /*Form Checkbox*/
 form{
@@ -36,7 +36,7 @@ form{
    }
 
 /*Cards*/
-.cards>div{
+.col>div{
     display: inline-block !important;
     margin: 1rem;
 }
