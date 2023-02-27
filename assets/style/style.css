@@ -20,12 +20,21 @@
         margin: 2px;
         background-color: #B8D4E3;
     }
+
+/* Checkbox*/
+.check{
+    background-color: #FAAA8D;
+    width: 100%;
+    justify-content: space-between;
+}
+
 /*Slide*/
 
 .slide {
     font-size: 50px;
     text-align: center;
-    background-color: #FAAA8D;
+    background-color: #D90368;
+    color: black;
     padding: 50px;
     display: flex;
     flex-direction: row;
@@ -43,17 +52,77 @@ form{
    }
 
 /*Cards*/
-.col>div{
-    display: inline-block !important;
-    margin: 1rem;
+.cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #B8D4E3;
 }
 
+.card {
+    border-radius: 0;
+    margin: 30px;
+    padding: 20px;
+    background-color: #FAAA8D;
+}
+.card-body {
+    position: relative;
+    background-color: #FAAA8D;
+}
+.card-body>a {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.card-title {
+    text-align: center;
+}
+.card-img-top {
+    margin: 15px;
+    width: calc(100% - 20px);
+}
+
+
 /*Contact*/
-.contact{
-    display: flex !important;
+.contact {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    max-width: 500px;
+    margin: auto;
+    position: relative;
+}
+.contact input, .contact text {
+    border: 1px solid black;
+    border-radius: 0;
 }
 /*Details*/
+.detail-card {
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    border: 1px solid black;
+    padding: 30px;
+}
+.detail-card > * {
+    flex-basis: 48%;
+    border: 1px solid black;
+}
+.card-description {
+    padding: 30px;
+}
+.detail-card img {
+    height: 100%;
+    align-self: center;
+    border-radius: 0;
+}
 
 /*Stats*/
 table{   
@@ -78,7 +147,8 @@ table{
    /*Footer*/
 footer{
     height: 6rem;
-    background-color: #FAAA8D;
+    background-color: #D90368;
+    color: #FAAA8D;
     padding: 5px;
 }
 .footer{
@@ -86,5 +156,28 @@ footer{
     justify-content: space-between;
     font-size: 2rem;
  }
+
+
+/*Media Queries > large */ 
+@media (min-width: 992px) {
+    .cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .card {
+        margin: 0;
+    }
+    .detail-card {
+        max-width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+}
+
+
 
 
