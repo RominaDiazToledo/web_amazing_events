@@ -1,21 +1,19 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
+header{
     width: 100%;
 }
-
-main {
+main{
     width: 100%;
     height: 100vh;
 }
 
-.nav-y-logo {
-    background-color: rgb(228, 218, 235);
+.nav-y-logo{
     width: 100%;
     height: 15vh;
     display: flex;
@@ -24,172 +22,164 @@ main {
     align-items: center;
 }
 
-.izquierda img {
-    width: 100px;
-    margin: 10px
-}
-
+.izquierda img{
+    width: 180px;
+    margin: 30px 400px 30px 30px
+}  
 /* este es el contenedor de la barra de navegacion*/
-.navbar.navbar-expand-lg.bg-body-tertiary {
-    background-color: rgb(228, 218, 235) !important;
+.navbar.navbar-expand-lg.bg-body-tertiary{
+    background-color:#0DD984 !important;
 }
 
-.derecha {
+.derecha{
     display: flex;
     flex-direction: row;
 }
-
-.navbar ul {
+.navbar ul{
     width: 50vw;
     display: flex;
     justify-content: space-around;
-
 }
-
-.navbar li {
+.navbar li{
     border-radius: 10px;
     height: 70px;
     width: 100px;
-    background-color: rgb(139, 118, 118);
+    background-color: #DF458D;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 3px;
 }
-
-.nav-item a {
-    color: rgb(228, 218, 235);
+.nav-item a{
+    color: #0DD984;
 }
 
 
-.page-title {
+.page-title{
     width: 100%;
     height: 30vh;
-    background-color: rgb(194, 165, 213);
+    background-color: #DF458D;
+    color: #0DD984;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.checkbox .row {
+.page-title>svg{
+    color: #0DD984 !important;
+}
+.checkbox .row{
     width: 50vw;
 }
 
-.contenedorCategorias {
+.contenedorCategorias{
     margin: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.checkbox .form-check input {
+.checkbox .form-check input{
     width: 15px;
 }
-
-.superior-main {
+.superior-main{
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-
 /* barra y boton search */
-.search button {
-    background-color: rgb(194, 165, 213);
-    border-color: rgb(194, 165, 213);
+.search button{
+    background-color: #0DD984;
+    border-color: #0DD984;
+}
+.search button:hover{
+    background-color: #A6024E !important;
+    border: #0DD984 !important;
 }
 
-.search button:hover {
-    background-color: rgb(228, 218, 235) !important;
-    border: rgb(228, 218, 235) !important;
-}
-
-#contenedorSearch {
+#contenedorSearch{
     width: 100%;
 }
-
 /* cards */
-.contenedor-card {
+.contenedor-card{
     height: 100%;
-}
+} 
 
-.contenedor-card .contenedor-4-cards {
-    margin-bottom: 20%;
+.contenedor-card .contenedor-4-cards{
+        margin-bottom: 20%;
 }
-
-.contenedor-card .card {
-    margin-top: 10px;
-    height: 90vh;
+.contenedor-card .card{
+    margin-top:10px;
+    height:90vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
 }
-
-.contenedor-card .card img {
-    height: 100vh;
+.contenedor-card .card img{
+    height:100vh;
     width: 100%;
     object-fit: cover;
 }
 
 
-.card a:hover {
-    background-color: rgb(139, 118, 118);
-    border: 2px solid rgb(139, 118, 118);
+.card a:hover{
+    background-color: #D90368;
+    border: 2px solid #DF458D;
 }
 
-.card a {
-    background-color: rgb(194, 165, 213);
-    border: 2px solid rgb(139, 118, 118);
+.card a{
+    background-color: #DF458D;
+    border: 2px solid #D90368;
 }
-
-.card-body {
+.card-body{
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(228, 218, 235);
+    background-color: #18D989;
 }
 
-.card .card-body .fila-inferior-card {
+.card .card-body .fila-inferior-card{
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-footer {
+footer{
     width: 100%;
     height: 10vh;
     padding: 10px;
     margin: 10px;
-    background-color: rgb(194, 165, 213);
+    background-color: #0DD984;
     display: flex;
     justify-content: space-between;
     position: fixed;
     bottom: 0;
 }
 
-footer p {
-    width: 100px;
+footer p{
+    width: 150px;
+    color: #D90368;
+    font-size: x-large;
     position: absolute;
     right: 20px;
+    bottom: 3px;
 }
-
-.social {
+.social{
     width: 100%;
     display: flex;
-    gap: 50px;
-
+    gap:50px;
+    
 }
-
-.social svg {
+.social svg{
     width: 40px;
     height: 40px;
-    color: rgb(139, 118, 118);
+    color: #D90368;
 }
 
 
-.formulario {
+.formulario{
     width: 90vw;
     margin: 20px;
     padding: 20px;
@@ -198,131 +188,128 @@ footer p {
     justify-content: center;
 }
 
-.tabla-completa {
+.tabla-completa{
     width: 100%;
 }
 
-.tabla-completa td {
+.tabla-completa td{
     width: 33%;
 }
-
-.tabla-completa thead th {
-    background-color: rgb(139, 118, 118);
+.tabla-completa thead th{
+    background-color: #0DD984;
+    color: #D90368;
 }
-
-.tabla-completa td :nth-child(even) {
-    background-color: rgb(228, 218, 235);
+.tabla-completa td :nth-child(even){
+    background-color: #FAAA8D;
 }
-
-.table .table-success .table-striped {
+.table .table-success .table-striped{
     margin-bottom: 15px;
 }
 
-.tabla-completa td {
+.tabla-completa td{
     height: 30px;
-    background-color: rgb(228, 218, 235);
+    background-color: #FCA6CE !important;
 }
-
-.tabla-completa th {
+.tabla-completa th{
     height: 40px;
     text-align: left;
     padding-left: 10px;
     background-color: rgb(139, 118, 118);
 }
 
-.tabla-completa .primera-fila {
+.tabla-completa .primera-fila{
     font-style: italic;
     font-weight: 200;
 }
 
-.contenedorDetails {
+ .contenedorDetails{
     width: 100%;
     height: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: rgb(139, 118, 118);
+     background-color: rgb(139, 118, 118); 
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.contenedorDetails .card-body {
+}  
+.contenedorDetails .card-body{
     padding: 20px;
 }
 
-.contenedor-detalles img {
+.contenedor-detalles img{
     width: 100%;
     height: 100%;
 }
-
 /* 
 
 /* pantallas medianas */
-@media only screen and (min-width: 576px) and (max-width: 1000px) {
+@media only screen and (min-width: 576px) and (max-width: 1000px){
 
-    .card-img-top {
-        height: 30vh !important;
+    .card-img-top{
+        height: 30vh!important;
     }
 
-    .contenedor-4-cards .card {
+    .contenedor-4-cards .card{
         height: 600px;
         width: 40vw;
     }
 
-    .contenedor-card .contenedor-4-cards {
-        margin-right: 10px;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 50px;
-        margin-bottom: 10%;
+    .contenedor-card .contenedor-4-cards{
+    margin-right: 10px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    margin-bottom: 10%;
     }
 
-    .contenedor-card .card-text {
+    .contenedor-card .card-text{
         height: 100px;
     }
-
-    .search input {
+    
+    .search input{
         width: 100%;
     }
 }
 
 /* pantallas grandes */
-@media only screen and (min-width: 1000px) {
-    .card-img-top {
-        height: 20vh !important;
+@media only screen and  (min-width: 1000px){
+    .card-img-top{
+        height: 20vh!important;
     }
 
-    .contenedor-4-cards .card {
+    .contenedor-4-cards .card{
         width: 20vw;
-        height: 500px !important;
+        height: 500px!important;
     }
 
 
-    .contenedor-card .contenedor-4-cards {
+    .contenedor-card .contenedor-4-cards{
         margin-right: 10px;
         height: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: flex-start;
-        gap: 50px;
+        gap:50px;
         margin-bottom: 10%;
     }
 
-    .contenedor-card .card-text {
-        height: 200px !important;
+    .contenedor-card .card-text{
+        height: 200px!important;
     }
-
-    .contenedor-detalles .card-body {
-        height: 250px !important;
+    
+    .contenedor-detalles .card-body{
+        height: 250px!important;
     }
-
-    .search input {
+    
+    .search input{
         width: 400px;
     }
-}
+
+
+} 
