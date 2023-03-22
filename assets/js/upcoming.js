@@ -1,17 +1,32 @@
-let containerEvents = document.querySelector(".container-events");
-let htmlUpcomingEvent ="";
+
+resultadosFuturo = []
+const contenedorPrincipal = document.querySelector('#contenedorPrincipal')
+const listadoCategorias = []
+let htmlCategorias = ""
+const contenedorCategorias = document.querySelector(".contenedorCategorias")
+let categoriasSeleccionadas = []
+let upcomingEvents = []
+
 for (let event of data.events) {
-let currentDate = new Date(data.currentDate);
-let date = new Date(event.date);
-if(date > currentDate){
-    containerEvents.innerHTML += `<div class="card" style="width: 18rem;">
-    <img src="${event.image}" class="card-img-top" alt="event">
-    <div class="card-body" >
-    <h5 class="card-title">${event.name}</h5>
-    <p class="card-text">${event.description}</p>
-    <p>Precio $${event.price}</p>
-    <a href="./details.html"><button type="button" class="btn btn-primary">More details...</button></a>
-    </div>
-    </div>`
+    let currentDate = new Date(data.currentDate);
+    let eventDate = new Date(event.date);
+    if (eventDate > currentDate) {
+        upcomingEvents.push(event)
+        console.log(upcomingEvents)
+    }
 }
+
+for (evento of upcomingEvents) {
+    resultadosFuturo.push(crearCardParaEvento(evento))
+    if (!listadoCategorias.includes(evento.category)) {
+        listadoCategorias.push(evento.category)
+    }
 }
+
+for (let cardCreada of resultadosFuturo) {
+    contenedorPrincipal.innerHTML += cardCreada;
+}
+for (let categoria of listadoCategorias) {
+    htmlCategorias += agregoCategorias(categoria)
+}
+contenedorCategorias.innerHTML = htmlCategorias
