@@ -1,6 +1,6 @@
-// funcion para crear las cards
-function crearCardParaEvento (eventoCard){
-    const nuevaCard= `<div class="card">
+// Creando cards
+function createCardEvent (eventoCard){
+    const newCard= `<div class="card">
     <img src="${eventoCard.image}" class="card-img-top" alt="${eventoCard.name}">
     <div class="card-body">
     <h5 class="card-title">${eventoCard.name}</h5>
@@ -11,23 +11,23 @@ function crearCardParaEvento (eventoCard){
     </div>
     </div>
     </div>`
-    return nuevaCard
+    return newCard
 }
 
-// funcion para crear el listado de categorias para los checkboxes
-function agregoCategorias(categoria) {
-    const nuevaCategoria = `<div class="col-6 col-md-4 col-xl-2 form-check">
+// Lista categorias de checkbox
+function addCategories(categoria) {
+    const newCategory = `<div class="col-6 col-md-4 col-xl-2 form-check">
         <input class="form-check-input" type="checkbox" value="${categoria}" id="input-${categoria}">
         <label class="form-check-label" for="input${categoria}">
             ${categoria}
         </label>
     </div>`
-    return nuevaCategoria
+    return newCategory
 }
 
-// funcion para generar los eventos filtrados por categoria
+// Eventos filtrados por categoria
 
-function aplicoFiltroCategoria() {
+function applyCategoryFilter() {
 
     contenedorPrincipal.innerHTML = ""
     if (categoriasSeleccionadas.length == 0) {
@@ -37,14 +37,14 @@ function aplicoFiltroCategoria() {
     else {
         eventosFiltrados = data.events.filter (ev => categoriasSeleccionadas.includes (ev.category))
             for (let ef of eventosFiltrados){
-                contenedorPrincipal.innerHTML += crearCardParaEvento (ef)
+                contenedorPrincipal.innerHTML += createCardEvent (ef)
             }
     }
 }
 
-// funcion para los eventos filtrados por palabras
+// Eventos filtrados por palabras
 
-function aplicoFiltroPalabra(palabraBusqueda){
+function applyWordFilter(palabraBusqueda){
     contenedorPrincipal.innerHTML = ""
     let filtroBusqueda = data.events.filter (eventobusqueda => {    
         if(eventobusqueda.name.toLowerCase().includes (palabraBusqueda)|| eventobusqueda.description.toLowerCase().includes(palabraBusqueda)){
@@ -52,6 +52,6 @@ function aplicoFiltroPalabra(palabraBusqueda){
         }
     }) 
     for(let eB of filtroBusqueda){
-        contenedorPrincipal.innerHTML += crearCardParaEvento (eB)
+        contenedorPrincipal.innerHTML += createCardEvent (eB)
     }
 }

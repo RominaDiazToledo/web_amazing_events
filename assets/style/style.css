@@ -22,7 +22,7 @@ main{
     align-items: center;
 }
 
-.izquierda img{
+.logo img{
     width: 180px;
     margin: 30px 400px 30px 30px
 }  
@@ -31,7 +31,7 @@ main{
     background-color:#0DD984 !important;
 }
 
-.derecha{
+.botones-nav{
     display: flex;
     flex-direction: row;
 }
@@ -98,6 +98,7 @@ main{
 
 #contenedorSearch{
     width: 100%;
+    background-color: #FCA6CE;
 }
 /* cards */
 .contenedor-card{
@@ -214,7 +215,7 @@ footer p{
     height: 40px;
     text-align: left;
     padding-left: 10px;
-    background-color: rgb(139, 118, 118);
+    background-color: #D90368;
 }
 
 .tabla-completa .primera-fila{
@@ -227,7 +228,7 @@ footer p{
     height: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
-     background-color: rgb(139, 118, 118); 
+     background-color: #D90368; 
     border-radius: 5px;
     display: flex;
     flex-direction: column;
