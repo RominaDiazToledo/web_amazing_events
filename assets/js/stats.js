@@ -1,20 +1,19 @@
 let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
-// let past ="./past.js"
-let resultados = []
+
+let results = []
 let pastEvents = []
-let listadoCategoriasPast = []
+let listPastCategories = []
 let upcomingEvents = []
-let listadoCategoriasUpcoming = []
+let listUpcomingCategories = []
 
 
-// nuevo:
 let data;
 
 async function getEventData(){
-    //nuevo
+   
     const response = await fetch(urlApi)
     data = await response.json().then(data => {
-        llenarPrimeraTabla(data)
+        addFirstTable(data)
         getUpcomingData(data)
         getPastData(data)
 
@@ -28,43 +27,43 @@ getEventData()
 function getUpcomingData(data){
     pushearUpcomingEvents(data)
 
-    llenarSegundaTabla(upcomingEvents)
+    addSecondTable(upcomingEvents)
 }
 
 
 async function getPastData(data){
     pushearPastEvents(data)
-    llenarTerceraTabla(pastEvents);
+    addThirdTable(pastEvents);
 }
 
-function asistenciaEvento(evento) {
+function eventAttendance(evento) {
     let capacidad = evento.capacity;
     let asistencia = evento.assistance;
     let porcentajeAsistencia = asistencia/capacidad * 100;
     return porcentajeAsistencia;
 }
 
-// determino el evento con mayor asistencia
-function mayorAsistencia(data) {
+
+function greaterAttendance(data) {
     let porcentajeMayorHastaAhora = 0;
     let eventoMayorHastaAhora = null;
     for (evento of data.events) {
-        let porcentajeAComparar = asistenciaEvento(evento);
+        let porcentajeAComparar = eventAttendance(evento);
         if (porcentajeAComparar > porcentajeMayorHastaAhora) {
             porcentajeMayorHastaAhora = porcentajeAComparar
             eventoMayorHastaAhora = evento
-            resultados.push(eventoMayorHastaAhora);
+            results.push(eventoMayorHastaAhora);
         }
     }
     return eventoMayorHastaAhora;
 }
 
-// determino el evento con menor asistencia 
-function menorAsistencia(data) {
+
+function lowerAttendance(data) {
     let porcentajeMenorHastaAhora = 100;
     let eventoMenorHastaAhora = null;
     for (evento of data.events) {
-        let porcentajeACompararMinimo = asistenciaEvento(evento);
+        let porcentajeACompararMinimo = eventAttendance(evento);
         if (porcentajeACompararMinimo < porcentajeMenorHastaAhora) {
             porcentajeMenorHastaAhora = porcentajeACompararMinimo
             eventoMenorHastaAhora = evento
@@ -73,8 +72,8 @@ function menorAsistencia(data) {
     return eventoMenorHastaAhora;
 }
 
-// determino el evento con mayor capacidad
-function mayorCapacidad(data){
+
+function greaterCapacity(data){
     let mayorCapacidadHastaAhora = 0
     let eventoMayorCapacidad = null;
     for (evento of data.events) {
@@ -87,8 +86,8 @@ function mayorCapacidad(data){
     return eventoMayorCapacidad
 
 }
-//Calcular ingresos promedio por categoría
-function getGananciaCategoria(data) {
+
+function getCategoryRevenue(data) {
     let cantidadEventos = data.length;
     let ganancia = 0;
     data.forEach(element => {
@@ -102,8 +101,8 @@ function getGananciaCategoria(data) {
         return "$" + ganancia + " average per event";
     }
 }
-//Calcular asistencia promedio por categoría
-function getAsistenciaCategoria(data) {
+
+function getCategoryAttendance(data) {
     let cantidadEventos = data.length;
     let asistencia = 0;
     data.forEach(element => {
@@ -116,49 +115,49 @@ function getAsistenciaCategoria(data) {
     }
 }
 
-// completo la primera tabla
-function llenarPrimeraTabla (data){
+
+function addFirstTable (data){
     let container = document.getElementById("primeraTabla");
     let tableBodyHTML = "";
-    const eventoMayorAsistencia = mayorAsistencia(data);
-    const eventoMenorAsistencia = menorAsistencia(data);
-    const eventoMayorCapacidad = mayorCapacidad (data);
+    const eventoMayorAsistencia = greaterAttendance(data);
+    const eventoMenorAsistencia = lowerAttendance(data);
+    const eventoMayorCapacidad = greaterCapacity (data);
     tableBodyHTML = 
         `<tr><td>Events with the highest percentaje of asistencia</td> <td>Events with the lowest percentaje of asistencia</td> <td>Events with the highest capacity</td></tr>
         <tr><td>${eventoMayorAsistencia.name}</td> <td>${eventoMenorAsistencia.name}</td> <td>${eventoMayorCapacidad.name}</td>
-        <tr><td>Percentage: ${asistenciaEvento(eventoMayorAsistencia)}%</td> <td>Percentage: ${asistenciaEvento(eventoMenorAsistencia)}% </td> <td>Capacity: ${eventoMayorCapacidad.capacity}</td></tr>`
+        <tr><td>Percentage: ${eventAttendance(eventoMayorAsistencia)}%</td> <td>Percentage: ${eventAttendance(eventoMenorAsistencia)}% </td> <td>Capacity: ${eventoMayorCapacidad.capacity}</td></tr>`
     container.innerHTML = tableBodyHTML;
 }
 
-// completo la segunda tabla 
-function llenarSegundaTabla(upcomingEvents) {
+ 
+function addSecondTable(upcomingEvents) {
     let container = document.getElementById("segundaTabla");
     listaCategoriasUpcoming(upcomingEvents)
     tableBodyHTML = ""
-    listadoCategoriasUpcoming.forEach(element => {
+    listUpcomingCategories.forEach(element => {
         let eventosFiltradosFuturo = upcomingEvents.filter(event => event.category === element);
-        let gananciaCategoria = getGananciaCategoria(eventosFiltradosFuturo);
-        let asistenciaCategoria = getAsistenciaCategoria(eventosFiltradosFuturo);
+        let gananciaCategoria = getCategoryRevenue(eventosFiltradosFuturo);
+        let asistenciaCategoria = getCategoryAttendance(eventosFiltradosFuturo);
         tableBodyHTML +=  `<tr><td>${element}</td> <td>${gananciaCategoria}</td> <td>${asistenciaCategoria}</td></tr>`
     container.innerHTML = tableBodyHTML;
               
     });
 }
-// completo la tercera tabla
-function llenarTerceraTabla(pastEvents) {
+
+function addThirdTable(pastEvents) {
     let container = document.getElementById("terceraTabla");
     let gananciaCategoria = ""
     let asistenciaCategoria = ""
     listaCategoriasPast(pastEvents)
-    listadoCategoriasPast.forEach(element => {
+    listPastCategories.forEach(element => {
         let eventosFiltradosPasado = pastEvents.filter(event => event.category === element);
-        gananciaCategoria = getGananciaCategoria(eventosFiltradosPasado);
-        asistenciaCategoria = getAsistenciaCategoria(eventosFiltradosPasado);
+        gananciaCategoria = getCategoryRevenue(eventosFiltradosPasado);
+        asistenciaCategoria = getCategoryAttendance(eventosFiltradosPasado);
         tableBodyHTML +=  `<tr><td>${element}</td> <td>${gananciaCategoria}</td> <td>${asistenciaCategoria}</td></tr>`
     container.innerHTML = tableBodyHTML;           
     });
 }
-// filtro eventos del pasado
+
 function pushearPastEvents (data){
     for(let event of data.events){
         let currentDate = new Date(data.currentDate);
@@ -169,18 +168,18 @@ function pushearPastEvents (data){
         }
     }
 }
-// listo las categorias pasado
+
 function listaCategoriasPast(pastEvents){
     
     for (evento of pastEvents) {
-        if (!listadoCategoriasPast.includes(evento.category)){
-            listadoCategoriasPast.push(evento.category)
+        if (!listPastCategories.includes(evento.category)){
+            listPastCategories.push(evento.category)
         }
     }
 
 }
 
-// filtro eventos del futuro
+
 function pushearUpcomingEvents (data){
     for(let event of data.events){
         let currentDate = new Date(data.currentDate);
@@ -190,11 +189,11 @@ function pushearUpcomingEvents (data){
         }
     }
 }
-// listo las categorias pasado
+
 function listaCategoriasUpcoming(upcomingEvents){
     for (evento of upcomingEvents) {
-        if (!listadoCategoriasUpcoming.includes(evento.category)){
-            listadoCategoriasUpcoming.push(evento.category)
+        if (!listUpcomingCategories.includes(evento.category)){
+            listUpcomingCategories.push(evento.category)
         }
     }
 }
